@@ -1,5 +1,7 @@
 # Scribbly
 
+![Tests](https://github.com/minavarlii/scribbly/actions/workflows/tests.yml/badge.svg)
+
 Scribbly is a real-time, gesture-based whiteboard built with Python.  
 It allows users to draw on the screen using their index finger, powered by live hand tracking from a standard webcam.
 
@@ -88,6 +90,11 @@ The project includes unit tests for the core logic and stroke history handling. 
 To run the tests, use:
 pytest
 
+## Continuous Integration
+
+Automated tests are executed on every push and pull request using GitHub Actions.
+The CI pipeline installs project dependencies and runs the pytest test suite in a clean Linux environment to detect regressions early and ensure consistent behavior across changes.
+
 ## Intended use
 
 Scribbly is designed to be run locally and used via screen sharing during online meetings such as Zoom, Microsoft Teams, or Google Meet. It does not require any plugins, browser extensions, or system-level integrations.
@@ -98,7 +105,7 @@ Scribbly is designed to be run locally and used via screen sharing during online
 • MediaPipe  
 • NumPy  
 • pytest  
-• Docker
-
+• Docker  
+• GitHub Actions
 
 

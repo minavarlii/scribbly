@@ -23,15 +23,11 @@ Scribbly was built to provide a simple alternative: a camera-based whiteboard th
 
 ## Testing & Quality Assurance
 
-The project includes unit tests for deterministic core components such as stroke history handling and internal state management.
-
-Due to the real-time and camera-dependent nature of hand tracking, testing focuses on logic that can be validated reliably without hardware input.
-
 Tests are written using pytest and are designed to:
-- validate correct stroke recording and undo/redo behavior
-- ensure predictable state transitions
-- reduce the risk of regressions in core drawing functionality
-
+- validate stroke recording and undo/redo behavior
+- ensure predictable internal state transitions
+- reduce the risk of regressions in core logic
+  
 ## Requirements
 
 To run Scribbly, you need:
@@ -52,7 +48,26 @@ All dependencies are listed in `requirements.txt`.
 
 ## Installation
 
-Create and activate a virtual environment, then install dependencies:
+Create and activate a virtual environment, then install dependencies.
+
+## Containerized Test Environment (Docker)
+
+Scribbly includes a Docker-based setup to provide a reproducible environment for running automated tests.
+
+The Docker setup is intended exclusively for running automated tests and is not used to execute the interactive application or webcam-based functionality.
+
+The container is used to:
+- isolate Python and dependency versions
+- run unit tests in a consistent environment
+- support automated test execution in CI pipelines
+
+## Running Tests in Docker
+
+Build the test container:
+docker build -t scribbly-tests .
+
+Run the test suite:
+docker run scribbly-tests
 
 ## Running the project
 
@@ -78,11 +93,12 @@ pytest
 Scribbly is designed to be run locally and used via screen sharing during online meetings such as Zoom, Microsoft Teams, or Google Meet. It does not require any plugins, browser extensions, or system-level integrations.
 
 ## Tech stack
-	•	Python
-	•	OpenCV
-	•	MediaPipe
-	•	NumPy
-	•	pytest
+• Python  
+• OpenCV  
+• MediaPipe  
+• NumPy  
+• pytest  
+• Docker
 
 
 

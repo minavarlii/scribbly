@@ -19,8 +19,18 @@ Scribbly was built to provide a simple alternative: a camera-based whiteboard th
 - Adjustable brush size  
 - Erase mode  
 - Stroke-based undo and redo  
-- Hover-activated UI controls to reduce accidental input  
+- Hover-activated UI controls to reduce accidental input
 
+## Testing & Quality Assurance
+
+The project includes unit tests for deterministic core components such as stroke history handling and internal state management.
+
+Due to the real-time and camera-dependent nature of hand tracking, testing focuses on logic that can be validated reliably without hardware input.
+
+Tests are written using pytest and are designed to:
+- validate correct stroke recording and undo/redo behavior
+- ensure predictable state transitions
+- reduce the risk of regressions in core drawing functionality
 
 ## Requirements
 

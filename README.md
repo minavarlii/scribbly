@@ -29,7 +29,10 @@ Tests are written using pytest and are designed to:
 - validate stroke recording and undo/redo behavior
 - ensure predictable internal state transitions
 - reduce the risk of regressions in core logic
-  
+
+To run the tests locally:
+`pytest`
+
 ## Requirements
 
 To run Scribbly, you need:
@@ -61,34 +64,35 @@ The Docker setup is intended exclusively for running automated tests and is not 
 The container is used to:
 - isolate Python and dependency versions
 - run unit tests in a consistent environment
-- support automated test execution in CI pipelines
+- optionally support automated test execution in CI or local testing workflows
 
 ## Running Tests in Docker
 
 Build the test container:
-docker build -t scribbly-tests .
+`docker build -t scribbly-tests`.
 
 Run the test suite:
-docker run scribbly-tests
+`docker run scribbly-tests`
 
 ## Running the project
 
-After installing the required dependencies, start Scribbly by running the following command from the project root:
+After installing the required dependencies, make sure your virtual environment is activated.
 
-`bash`
+If you are using a virtual environment, activate it first:
 
-python3 src/main.py
+On macOS / Linux:
+`source venv/bin/activate`
+
+On Windows:
+`venv\Scripts\activate`
+
+Once the virtual environment is active, start Scribbly by running the following command from the project root:
+
+`python3 src/main.py`
 
 A window will open showing the camera feed and drawing interface. You can draw by pointing your index finger at the screen.
 
 Press Q at any time to close the application.
-
-## Testing
-
-The project includes unit tests for the core logic and stroke history handling. These tests focus on deterministic components of the system rather than camera input.
-
-To run the tests, use:
-pytest
 
 ## Continuous Integration
 
@@ -107,5 +111,3 @@ Scribbly is designed to be run locally and used via screen sharing during online
 • pytest  
 • Docker  
 • GitHub Actions
-
-
